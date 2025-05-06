@@ -1,5 +1,6 @@
-local UIModel = require("TopUI.TopUIModel")
+local UI = require("TopUI.TopUIModel")
 local RenderHeaderUI = require("TopUI.TopUIView")
+local TopUIFunctionality = require("TopUI.TopUIController")
 
 require("3Dproject")
 
@@ -28,6 +29,8 @@ end
 function love.draw()
     --UI----
     RenderHeaderUI()
+    TopUIFunctionality()
+
     --local sx,sy = project3D(point.x,point.y,point.z)
     --love.graphics.circle("fill",sx,sy,4)
 
