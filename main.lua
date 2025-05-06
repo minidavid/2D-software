@@ -1,59 +1,51 @@
+local UIModel = require("TopUI.TopUIModel")
+local RenderHeaderUI = require("TopUI.TopUIView")
+
+require("3Dproject")
+
+
+
+local point = {x = 0, y = 0, z = 0}
+
+
+local triangle = {
+    {x = -1, y = -1, z = 2},
+    {x =  -1, y = -1, z = 10},
+    {x =  1, y =  -1, z = 2},
+    {x =  -1, y =  -1, z = 10}
+}
+
+
+
 function love.load()
-
+    for i = 1, #triangle do
+        local v = triangle[i]
+        print(string.format("Vertex %d: x=%.2f, y=%.2f, z=%.2f", i, v.x, v.y, v.z))
+    end
 end
-
-
 
 
 function love.draw()
     --UI----
-    Top()
+    RenderHeaderUI()
+    --local sx,sy = project3D(point.x,point.y,point.z)
+    --love.graphics.circle("fill",sx,sy,4)
 
 
 
+    for i = 1, #triangle do
+        local a = triangle[i]
+        local b = triangle[i % #triangle + 1]
+        local ax, ay = project3D(a.x, a.y, a.z)
+        local bx, by = project3D(b.x, b.y, b.z)
+        love.graphics.line(ax, ay, bx, by)
+    end
 
+    
 end
 
 
 
 function love.update(dt)
-
-end
-
-
-
----------------------------------
-local mx, my
-
-UI = {
-    x = 0,
-    y = 0
-}
-
-function TopUI()
-    love.graphics.setColor(1,1,1,1)
-    love.graphics.rectangle("line", UI.x + 20, UI.y + 20, love.graphics.getWidth() - 40, 50)
-    love.graphics.rectangle("line", UI.x + 30, UI.y + 30, love.graphics.getWidth() - 60, 30)
-    
-    love.graphics.print("#3D",UI.x+40,UI.y+40)
-    
-    love.graphics.rectangle("line", love.graphics.getWidth() - UI.x - 100, UI.y + 35, 40, 20)--the x
-    love.graphics.print("X",love.graphics.getWidth()-85,UI.y+38)
-    
-
-    ----QUIT
-    mx,my = love.mouse.getPosition()
-    
-    if mx>love.graphics.getWidth() - UI.x - 100 and
-    mx < love.graphics.getWidth() - UI.x - 60 and
-    my > UI.y + 35 and
-    my < UI.y + 50 then
-        love.graphics.print("QUIT?",mx,my+20)
-
-        if love.mouse.isDown(1) then
-            love.event.quit()
-        end
-
-    end
 
 end
