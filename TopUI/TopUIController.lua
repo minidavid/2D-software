@@ -5,7 +5,7 @@ local timer = 0
 local function TopUIFunctionality ()
     
     mx,my = love.mouse.getPosition()
-
+    click = {}
 
     local function ControlCoordinates()
         timer = timer + 0.1
@@ -63,11 +63,15 @@ local function TopUIFunctionality ()
 
             love.graphics.print("Maximize?",mx,my+20)
 
-            if love.mouse.isDown(1) then
+            if love.mouse.isDown(1) and tostring(love.window.getFullscreen())=="false" then
                 love.window.setFullscreen(true)
+
+            elseif love.mouse.isDown(1) and tostring(love.window.getFullscreen())=="true" then
+                love.window.setFullscreen(false)
             end
+
         end
-        
+
     end
 
 
