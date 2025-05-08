@@ -10,10 +10,12 @@ function Draw3D()
         love.graphics.line(ax, ay, bx, by)
 
         --animate
-        triangle[i].z = triangle[i].z+0.01
-        triangle[i].y = math.sin(love.timer.getTime()*i)/2
-        triangle[i].z = math.cos(love.timer.getTime()*i)/2
-        triangle[i].x = math.cos(love.timer.getTime()*i)/2
+        triangle[i].z = 5
 
+        --fix
+        triangle[i].y = math.cos(love.timer.getTime()*i/20)*2
+        
+        --triangle[i].z = math.cos(love.timer.getTime()*i)/2
+        --triangle[i].x = math.cos(love.timer.getTime()*i)/2
     end
 end

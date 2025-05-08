@@ -13,7 +13,7 @@ local function TopUIFunctionality ()
         --this is the slide in for the header
         local function keyFrameForSlideInAnimation()
 
-            if timer > 0 then
+            if timer > 0 and timer<1 then
                 UI.minimize.x = love.graphics.getWidth() - 200
                 UI.minimize.y = 35     
                 UI.minimize.width = 40
@@ -28,6 +28,8 @@ local function TopUIFunctionality ()
                 UI.cancel.y = 35
                 UI.cancel.width = 50
                 UI.cancel.height = 20
+
+                UI.slidePos.width = love.graphics.getWidth()
             end
 
         end
@@ -46,12 +48,21 @@ local function TopUIFunctionality ()
         my < UI.minimize.y + UI.minimize.height then
 
             love.graphics.print("Minimize?",mx,my+20)
+
+            UI.minimize.x = love.graphics.getWidth()-250
+            UI.minimize.width = 90
     
             if love.mouse.isDown(1) then
                 love.window.minimize()
             end
+        
+        else
+            UI.minimize.x = love.graphics.getWidth()-200
+            UI.minimize.width = 40
+
         end
         
+        love.graphics.print(UI.minimize.x)
     end
 
     local function Maximize()
@@ -61,7 +72,13 @@ local function TopUIFunctionality ()
         my > UI.maximize.y and
         my < UI.maximize.y + UI.maximize.height then
 
-            love.graphics.print("Maximize?",mx,my+20)
+
+            if tostring(love.window.getFullscreen())=="true" then
+                love.graphics.print("Restore Down?",mx,my+20)            
+            else
+                love.graphics.print("Maximize?",mx,my+20) 
+            end
+
 
             if love.mouse.isDown(1) and tostring(love.window.getFullscreen())=="false" then
                 love.window.setFullscreen(true)
@@ -92,7 +109,9 @@ local function TopUIFunctionality ()
 
     end
 
-    ControlCoordinates(); Minimize(); Maximize(); Quit()
+
+
+    ControlCoordinates(); Minimize(); Maximize(); Quit(); 
 end
 
 return TopUIFunctionality

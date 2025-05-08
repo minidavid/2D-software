@@ -5,8 +5,9 @@ local function RenderHeaderUI()
     local function DrawDeco()
         love.graphics.rectangle("line", UI.x + 30, UI.y + 30, love.graphics.getWidth() - 60, 30)
         love.graphics.print("#3D",UI.x+40,UI.y+40)
-
     end
+
+
 
     local function DrawMinimize()
 
@@ -16,8 +17,20 @@ local function RenderHeaderUI()
 
     
     local function DrawMaximize()
-        love.graphics.rectangle("line", UI.maximize.x, UI.maximize.y, 40, 20)
-        love.graphics.rectangle("line", UI.maximize.x+17, UI.maximize.y+7, 5, 5)
+
+        if tostring(love.window.getFullscreen())=="true" then
+
+            love.graphics.rectangle("line", UI.maximize.x, UI.maximize.y, 40, 20)
+            love.graphics.rectangle("line", UI.maximize.x+17, UI.maximize.y+10, 5, 5)
+            love.graphics.line(UI.maximize.x+20, UI.maximize.y+6, UI.maximize.x+25, UI.maximize.y+6)
+            love.graphics.line(UI.maximize.x+25, UI.maximize.y+6, UI.maximize.x+25, UI.maximize.y+10)
+
+        else
+            love.graphics.rectangle("line", UI.maximize.x, UI.maximize.y, 40, 20)
+            love.graphics.rectangle("line", UI.maximize.x+17, UI.maximize.y+7, 5, 5)
+
+        end
+
     end
 
     local function DrawQuit()
@@ -27,7 +40,7 @@ local function RenderHeaderUI()
 
 
 
-    DrawDeco(); DrawMinimize(); DrawMaximize(); DrawQuit()
+    DrawDeco(); DrawMinimize(); DrawMaximize(); DrawQuit(); 
 end
 
 return RenderHeaderUI

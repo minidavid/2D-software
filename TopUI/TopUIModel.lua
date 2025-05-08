@@ -21,7 +21,9 @@ local UI = {
         y = 0,
         width = 40,
         height = 30
-    }
+    },
+
+
 }
 
 return UI

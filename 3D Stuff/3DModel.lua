@@ -1,6 +1,6 @@
 local triangle = {}
-local segments = 32  -- more segments = smoother circle
-local radius = 3
+local segments = 30  -- more segments = smoother circle
+local radius = 7
 local y = 3
 
 for i = 0, segments - 1 do
