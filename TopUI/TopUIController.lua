@@ -127,7 +127,7 @@ local function TopUIFunctionality ()
                 UI.cancel.x = love.graphics.getWidth()-100
                 UI.cancel.width = 40
 
-            elseif mx>UI.maximize.x and
+            elseif mx > UI.maximize.x and
             mx < UI.maximize.x + UI.maximize.width and
             my > UI.maximize.y and
             my < UI.maximize.y + UI.maximize.height then

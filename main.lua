@@ -20,14 +20,14 @@ local point = {x = 0, y = 0, z = 0}
 
 
 function love.load()
-    image = love.graphics.newImage("jump.png")
+    image = love.graphics.newImage("pixilart-sprite.png")
 
     frames = {}
-    local frameWidth = 117
-    local frameHeight = 233
+    local frameWidth = 100
+    local frameHeight = 100
     
-    for i = 1,5 do 
-        table.insert(frames, love.graphics.newQuad(0+i*117, 0, 117, 233, image:getWidth(), image:getHeight()))
+    for i = 1,42 do 
+        table.insert(frames, love.graphics.newQuad(0+i*100, 0, 100, 100, image:getWidth(), image:getHeight()))
     end
 
     currFrame = 1
@@ -50,7 +50,12 @@ function love.draw()
     Draw3DSphere()
     Draw3DCircle()
     
-    love.graphics.draw(image,frames[math.floor(currFrame)],100,100)
+    if love.timer.getTime()<12 then
+        love.graphics.print("Hi")
+    end
+
+    image:setFilter("nearest","nearest")
+    love.graphics.draw(image,frames[math.floor(currFrame)],love.graphics.getWidth()/4,love.graphics.getHeight()/4,0,2,2)
 
 end
 
@@ -58,9 +63,9 @@ end
 
 function love.update(dt)
 
-    currFrame = currFrame + dt * 4
+    currFrame = currFrame + dt * 8
 
-    if currFrame > 5 then
+    if currFrame > 42 then
         currFrame=1
     end
 
