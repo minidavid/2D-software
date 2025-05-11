@@ -4,6 +4,5 @@ function project3D(x,y,z)
     local fov = scale/(distance+z)
 
     return 400 + x * fov, 300-y * fov
-
 end
 
