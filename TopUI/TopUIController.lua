@@ -91,7 +91,7 @@ local function TopUIFunctionality ()
         my > UI.cancel.y and
         my < UI.cancel.y + UI.cancel.height then
 
-            love.graphics.print("QUIT?",mx,my+20)
+            love.graphics.print("QUIT? :(",mx,my+20)
 
             if love.mouse.isDown(1) then
                 love.event.quit()
@@ -146,14 +146,20 @@ local function TopUIFunctionality ()
             my > UI.cancel.y and
             my < UI.cancel.y + UI.cancel.height then
 
-                UI.minimize.x = love.graphics.getWidth()-250
                 UI.minimize.width = 40
 
-                UI.maximize.x = love.graphics.getWidth()-200
+
                 UI.maximize.width = 40
 
                 UI.cancel.x = love.graphics.getWidth()-150
-                UI.cancel.width = 90
+                    
+                if UI.cancel.width<90 then
+                    UI.cancel.width = UI.cancel.width+2
+                    UI.cancel.x = love.graphics.getWidth()-UI.cancel.width-60
+                    
+                    UI.minimize.x = love.graphics.getWidth()-UI.cancel.width-160
+                    UI.maximize.x = love.graphics.getWidth()-UI.cancel.width-110
+                end
             end
         
         else
