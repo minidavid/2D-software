@@ -8,7 +8,6 @@ require("3D Stuff.circle.3DView")
 
 require("3D Stuff.Project3D")
 
-
 require("3D Stuff.sphere.3DModel")
 require("3D Stuff.sphere.3DView")
 
@@ -31,6 +30,12 @@ function love.load()
     end
 
     currFrame = 1
+
+    love.window.setMode(200,200, {
+        borderless = true,
+        resizable = false,
+        fullscreen = false
+    })
     
 end
 
@@ -40,23 +45,33 @@ local t = 0
 function love.draw()
 
     --UI----
-    RenderHeaderUI()
-    TopUIFunctionality()
+
 
     --local sx,sy = project3D(point.x,point.y,point.z)
     --love.graphics.circle("fill",sx,sy,4)
 
-    DrawFrameArt() --MODIFY THIS
-    Draw3DSphere()
-    Draw3DCircle()
-    
-    if love.timer.getTime()<12 then
-        love.graphics.print("Hi")
+
+
+
+    if love.timer.getTime()<8 then
+        
+        image:setFilter("nearest","nearest")
+        love.graphics.draw(image,frames[math.floor(currFrame)],0,0,0,2,2)
+
+    elseif love.timer.getTime()>8 and love.timer.getTime()<8.1 then
+
+        love.window.setMode(800,600, {borderless = true, resizable = false, fullscreen = false})
+  
+    else
+
+        RenderHeaderUI()
+        TopUIFunctionality()
+        DrawFrameArt() --MODIFY THIS
+        Draw3DSphere()
+        Draw3DCircle()
+
     end
-
-    image:setFilter("nearest","nearest")
-    love.graphics.draw(image,frames[math.floor(currFrame)],love.graphics.getWidth()/4,love.graphics.getHeight()/4,0,2,2)
-
+   
 end
 
 
