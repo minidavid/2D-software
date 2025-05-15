@@ -3,7 +3,8 @@ require("Primitives.Project3D")
 
 function DrawCylinder()
     local segments = 20
-    local rings = 4
+    local rings = 2
+    local detail = 10
 
     for j = 0, rings - 1 do
      for i = 0, segments - 1 do
@@ -22,7 +23,7 @@ function DrawCylinder()
 
     -- Draw vertical lines between rings
     for j = 0, rings - 2 do
-        for i = 0, segments - 1 do
+        for i = 0, segments - 1, detail do
             local index1 = j * segments + i + 1
             local index2 = (j + 1) * segments + i + 1
 

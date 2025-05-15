@@ -16,7 +16,9 @@ require("Primitives.sphere.3DView")
 require("StartUpAnimation.startUpController")
 require("Primitives.plane.3DView")
 require("Primitives.cylinder.3DView")
+
 require("Primitives.cube.3DView")
+require("Primitives.cube.3DController")
 
 
 local point = {x = 0, y = 0, z = 0}
@@ -70,6 +72,7 @@ function love.draw()
         --DrawPlane()
         DrawCylinder()
         DrawCube()
+        MoveCube()
     end
    
 end
