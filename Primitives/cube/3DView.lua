@@ -8,7 +8,10 @@ function DrawCube()
         local b = cube[i % #cube + 1]
         local ax, ay = project3D(a.x, a.y, a.z)
         local bx, by = project3D(b.x, b.y, b.z)
-        love.graphics.line(ax, ay, bx, by)
+
+        if cube[i].z > 1 then
+         love.graphics.line(ax, ay, bx, by)
+        end
        
         --cube[i].z = cube[i].z - 0.1
     end
