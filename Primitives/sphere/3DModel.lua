@@ -1,5 +1,5 @@
 local sphere = {}
-local segments = 1
+local segments = 20
 local radius = 7
 
 for i = 0, segments - 1 do
@@ -8,9 +8,10 @@ for i = 0, segments - 1 do
     for j = 0, segments - 1 do
         local phi = (j / segments) * math.pi -- vertical rotation
 
+
         local x = radius * math.sin(phi) * math.cos(theta)
         local y = radius * math.cos(phi)
-        local z = radius * math.sin(phi) * math.sin(theta)-20
+        local z = radius * math.sin(phi) * math.sin(theta)
 
         table.insert(sphere, {x = x, y = y, z = z})
     end

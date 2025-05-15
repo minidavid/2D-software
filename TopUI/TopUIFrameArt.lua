@@ -1,4 +1,4 @@
-require("3D Stuff.Project3D")
+require("Primitives.Project3D")
 
 local triangle2 = {
     -- Back face (z = -10)

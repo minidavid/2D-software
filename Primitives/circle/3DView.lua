@@ -1,5 +1,5 @@
-local circle = require("3D Stuff.circle.3DModel")
-require("3D Stuff.Project3D")
+local circle = require("Primitives.circle.3DModel")
+require("Primitives.Project3D")
 
 
 function Draw3DCircle() 
@@ -11,12 +11,10 @@ function Draw3DCircle()
         love.graphics.line(ax, ay, bx, by)
 
         --animate
+            
+        --circle[i].z = circle[i].z-0.01
 
-        --fix
-        --triangle[i].y = math.cos(love.timer.getTime()*i/20)*2
-
-        --triangle[i].z = math.cos(love.timer.getTime()*i)/2
-        --triangle[i].x = math.cos(love.timer.getTime()*i)/2
+        
     end
 
     

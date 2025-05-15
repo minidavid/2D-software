@@ -91,7 +91,7 @@ local function TopUIFunctionality ()
         my > UI.cancel.y and
         my < UI.cancel.y + UI.cancel.height then
 
-            love.graphics.print("QUIT? :(",mx,my+20)
+            love.graphics.print("QUIT?",mx,my+20)
 
             if love.mouse.isDown(1) then
                 love.event.quit()
