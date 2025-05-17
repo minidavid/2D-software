@@ -5,6 +5,7 @@ function MoveCube()
     for i = 1,#cube do
         
             RotateX(cube[i], 1*3.142/180)
+            RotateY(cube[i], 1*3.142/180)
 
     end
 
@@ -17,6 +18,17 @@ function RotateX(point, angle)
     local x = point.x * cosA - point.z * sinA
     local z = point.x * sinA + point.z * cosA
     point.x = x
+    point.z = z
+
+end
+
+function RotateY(point, angle)
+    local cosA = math.cos(angle)
+    local sinA = math.sin(angle)
+    
+    local y = point.y * cosA - point.z * sinA
+    local z = point.y * sinA + point.z * cosA
+    point.y = y
     point.z = z
 
 end
@@ -51,3 +63,4 @@ function MirrorCubeZ()
 
     end
 end
+

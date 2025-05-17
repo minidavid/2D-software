@@ -20,6 +20,12 @@ require("Primitives.cylinder.3DView")
 require("Primitives.cube.3DView")
 require("Primitives.cube.3DController")
 
+require("Primitives.triangle.3DView")
+
+require("Primitives.cone.3DView")
+
+require("Primitives.cube.CreateCube")
+
 
 local point = {x = 0, y = 0, z = 0}
 
@@ -73,6 +79,12 @@ function love.draw()
         DrawCylinder()
         DrawCube()
         MoveCube()
+
+        DrawTriangle()
+        
+        DrawCone()
+
+        DrawMadeCube()
     end
    
 end
@@ -83,6 +95,6 @@ function love.update(dt)
 
     UpdateAnimation(dt)
 
-
+    UpdateMadeCube(dt)
 
 end
