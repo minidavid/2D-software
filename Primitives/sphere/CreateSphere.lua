@@ -23,7 +23,7 @@ function UpdateMadeSphere(dt)
 
     
     if love.keyboard.isDown("up") then
-        MakeSphere(-1, -1, 5)
+        MakeSphere(-1, -1, 20)
     end
 
     for _, sphere in ipairs(listOfSphere) do
@@ -44,8 +44,10 @@ function DrawMadeSphere()
 
             if a.z > 1 or b.z > 1 then
                 love.graphics.line(ax, ay, bx, by)
+            else
+                table.remove(listOfSphere, 1)
             end
-            
+
         end
     end
 

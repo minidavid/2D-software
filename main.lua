@@ -27,6 +27,8 @@ require("Primitives.cone.3DView")
 require("Primitives.cube.CreateCube")
 require("Primitives.sphere.CreateSphere")
 
+require("Primitives.cone.CreateCone")
+
 
 local point = {x = 0, y = 0, z = 0}
 
@@ -86,6 +88,9 @@ function love.draw()
 
         DrawMadeCube()
         DrawMadeSphere()
+
+        DrawMadeCone()
+
         love.graphics.print("FPS: " .. love.timer.getFPS(), 10, 50)
     end
 
@@ -100,5 +105,7 @@ function love.update(dt)
 
     UpdateMadeCube(dt)
     UpdateMadeSphere(dt)
+
+    UpdateMadeCone(dt)
 
 end

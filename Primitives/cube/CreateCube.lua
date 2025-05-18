@@ -17,6 +17,8 @@ function MakeCube(x,y,z)
 
 
     table.insert(listOfCubes, newCube)
+
+
 end
 
 function UpdateMadeCube(dt)
@@ -35,6 +37,7 @@ function UpdateMadeCube(dt)
 end
 
 function DrawMadeCube()
+    
     for _,cube in ipairs(listOfCubes) do 
         for i = 1,#cube do
             local a = cube[i]
@@ -44,9 +47,10 @@ function DrawMadeCube()
 
             if a.z > 1 or b.z > 1 then
                 love.graphics.line(ax, ay, bx, by)
+            else
+                table.remove(listOfCubes, 1)
             end
             
-            --cube[i].z = cube[i].z - 0.1
         end
     end
 
