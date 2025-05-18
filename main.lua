@@ -25,6 +25,7 @@ require("Primitives.triangle.3DView")
 require("Primitives.cone.3DView")
 
 require("Primitives.cube.CreateCube")
+require("Primitives.sphere.CreateSphere")
 
 
 local point = {x = 0, y = 0, z = 0}
@@ -77,16 +78,18 @@ function love.draw()
         Draw3DCircle()
         --DrawPlane()
         DrawCylinder()
-        DrawCube()
-        MoveCube()
 
         DrawTriangle()
         
+        DrawCube()
         DrawCone()
 
         DrawMadeCube()
+        DrawMadeSphere()
+        love.graphics.print("FPS: " .. love.timer.getFPS(), 10, 50)
     end
-   
+
+
 end
 
 
@@ -96,5 +99,6 @@ function love.update(dt)
     UpdateAnimation(dt)
 
     UpdateMadeCube(dt)
+    UpdateMadeSphere(dt)
 
 end

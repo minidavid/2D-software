@@ -10,8 +10,8 @@ function DrawCone()
         love.graphics.line(ax, ay, bx, by)
 
         --animate
-            
-        --circle[i].z = circle[i].z-0.01
+
+        --circle[i].z = circle[i].z - 0.01
 
         
     end

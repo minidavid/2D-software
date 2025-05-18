@@ -1,8 +1,8 @@
 require("Primitives.Project3D")
 
 
-local x = 2
-local y = 1
+local x = 0
+local y = 0
 local z = 10
 
 local width = 1
