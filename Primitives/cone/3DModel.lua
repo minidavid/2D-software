@@ -1,6 +1,6 @@
 require("Primitives.Project3D")
 
-local cone = {radius = 7, segments = 12, verticleLineIncrement = 3, height = 7}
+local cone = {x=0,y=0,z=0, radius = 7, segments = 12, verticleLineIncrement = 3, height = 7}
   -- more segments = smoother circle
 local y = 2
 

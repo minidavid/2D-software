@@ -7,6 +7,7 @@ require("TopUI.TopUIFrameArt")
 
 require("Primitives.circle.3DModel")
 require("Primitives.circle.3DView")
+require("Primitives.circle.CreateCircle")
 
 require("Primitives.Project3D")
 
@@ -28,6 +29,11 @@ require("Primitives.cube.CreateCube")
 require("Primitives.sphere.CreateSphere")
 
 require("Primitives.cone.CreateCone")
+
+require("Primitives.plane.CreatePlane")
+
+require("Primitives.triangle.CreateTriangle")
+require("Primitives.cylinder.CreateCylinder")
 
 
 local point = {x = 0, y = 0, z = 0}
@@ -79,17 +85,24 @@ function love.draw()
         --Draw3DSphere()
         Draw3DCircle()
         --DrawPlane()
-        DrawCylinder()
+        --DrawCylinder()
 
-        DrawTriangle()
+        --DrawTriangle()
         
-        DrawCube()
-        DrawCone()
+       -- DrawCube()
+        --DrawCone()
 
         DrawMadeCube()
         DrawMadeSphere()
 
         DrawMadeCone()
+
+        DrawMadeCircle()
+        DrawMadePlane()
+
+        DrawMadeTriangle()
+
+        DrawMadeCylinder()
 
         love.graphics.print("FPS: " .. love.timer.getFPS(), 10, 50)
     end
@@ -107,5 +120,13 @@ function love.update(dt)
     UpdateMadeSphere(dt)
 
     UpdateMadeCone(dt)
+
+    UpdateMadeCircle(dt)
+
+    UpdateMadePlane(dt)
+
+    UpdateMadeTriangle(dt)
+
+    UpdateMadeCylinder(dt)
 
 end
