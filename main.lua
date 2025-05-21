@@ -33,7 +33,16 @@ require("Primitives.cone.CreateCone")
 require("Primitives.plane.CreatePlane")
 
 require("Primitives.triangle.CreateTriangle")
+
 require("Primitives.cylinder.CreateCylinder")
+
+require("Primitives.Crown.CreateCrown")
+
+require("Primitives.spiral.CreateSpiral")
+
+require("Primitives.Christmas spiral.CreateSpiral")
+
+require("Primitives.8.CreateEight")
 
 
 local point = {x = 0, y = 0, z = 0}
@@ -83,7 +92,7 @@ function love.draw()
         TopUIFunctionality()
         --DrawFrameArt() --MODIFY THIS
         --Draw3DSphere()
-        Draw3DCircle()
+        --Draw3DCircle()
         --DrawPlane()
         --DrawCylinder()
 
@@ -92,10 +101,10 @@ function love.draw()
        -- DrawCube()
         --DrawCone()
 
-        DrawMadeCube()
-        DrawMadeSphere()
+        --DrawMadeCube()
+        --DrawMadeSphere()
 
-        DrawMadeCone()
+        --DrawMadeCone()
 
         DrawMadeCircle()
         DrawMadePlane()
@@ -103,6 +112,10 @@ function love.draw()
         DrawMadeTriangle()
 
         DrawMadeCylinder()
+        DrawMadeCrown()
+        DrawMadeSpiral()
+        DrawMadeChristmasSpiral()
+        DrawMadeEight()
 
         love.graphics.print("FPS: " .. love.timer.getFPS(), 10, 50)
     end
@@ -128,5 +141,9 @@ function love.update(dt)
     UpdateMadeTriangle(dt)
 
     UpdateMadeCylinder(dt)
+    UpdateMadeCrown(dt)
+    UpdateMadeSpiral(dt)
+    UpdateMadeChristmasSpiral(dt)
+    UpdateMadeEight(dt)
 
 end
