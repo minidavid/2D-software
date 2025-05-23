@@ -44,6 +44,8 @@ require("Primitives.Christmas spiral.CreateSpiral")
 
 require("Primitives.8.CreateEight")
 
+require("3DUIExtras.AddGUI")
+
 
 local point = {x = 0, y = 0, z = 0}
 
@@ -115,9 +117,12 @@ function love.draw()
         DrawMadeCrown()
         DrawMadeSpiral()
         DrawMadeChristmasSpiral()
-        DrawMadeEight()
+        --DrawMadeEight()
+ 
+        DrawGUI() -- 3DUIExtras.AddGUI, with grids & add
 
-        love.graphics.print("FPS: " .. love.timer.getFPS(), 10, 50)
+
+        love.graphics.print("FPS: " .. love.timer.getFPS(), love.graphics.getWidth()-100, love.graphics.getHeight()-30)
     end
 
 
@@ -144,6 +149,6 @@ function love.update(dt)
     UpdateMadeCrown(dt)
     UpdateMadeSpiral(dt)
     UpdateMadeChristmasSpiral(dt)
-    UpdateMadeEight(dt)
+    UpdateMadeEight()
 
 end

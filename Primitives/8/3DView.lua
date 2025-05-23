@@ -1,7 +1,7 @@
 local eight = require("Primitives.8.3DModel")
 require("Primitives.Project3D")
 
-function Draw3DChristmasSpiral()
+function DrawEight()
     for i = 1, #eight do
 
         local a = eight[i]

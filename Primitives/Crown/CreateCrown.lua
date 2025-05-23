@@ -4,7 +4,7 @@ local listOfCrowns = {}
 
 
 
-function MakeSphere(x,y,z)
+function MakeCrown(x,y,z)
 
     local newCrown = {}
     for _,point in ipairs(baseCrown) do
@@ -23,7 +23,7 @@ function UpdateMadeCrown(dt)
 
     
     if love.keyboard.isDown("up") then
-        MakeSphere(-1, -1, 20)
+        MakeCrown(-1, -1, 20)
     end
 
     for _, crown in ipairs(listOfCrowns) do

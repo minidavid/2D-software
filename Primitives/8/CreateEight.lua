@@ -19,7 +19,7 @@ function MakeEight(x,y,z)
     table.insert(listOfEight, newEight)
 end
 
-function UpdateMadeEight(dt)
+function UpdateMadeEight()
 
     
     if love.keyboard.isDown("8") then
