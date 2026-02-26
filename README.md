@@ -1,4 +1,5 @@
-#h1 Run
+How to run:
+
 Install the files.
 > Get love2d here:
 > https://love2d.org/
